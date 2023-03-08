@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filme Favoritos</title>
+</head>
+<body>
+    <table class="table table-striped">
+        <thead>
+            <th >LIKES</th>
+            <th >(imagens)</th>
+            <th >Título</th>
+            <th >Duração</th>
+            <th >favorito</th>
+            <th >editar</th>
+            <th >like</th>
+            <th >deslike</th>
+        </thead>
+        <tbody>
+            <tr th:each="filme : ${lista_filmes_favoritos}">
+                <td th:text="${filme.like}"></td>
+                <td ><img th:src="${filme.imagem}" width="130" height="200"></td>
+                <td th:text="${filme.titulo}"></td>
+                <td th:text="${filme.duracao}"></td>
+                <td class="bi bi-star-fill"><a th:href="@{/remover_favorito/{id}(id=${filme.id})}">Desfavoritar</a></td>
+                <td class="bi bi-pencil-fill"><a th:href="@{/editar_filme/{id}(id=${filme.id})}">Editar</a></td>
+                <td class="bi bi-hand-thumbs-up-fill"><a th:href="@{/like_up/{id}(id=${filme.id})}">like</a></td>
+                <td class="bi bi-hand-thumbs-down-fill"><a th:href="@{/like_down/{id}(id=${filme.id})}">deslike</a></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

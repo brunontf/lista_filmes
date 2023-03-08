@@ -1,0 +1,19 @@
+[ {
+  "id" : 1,
+  "titulo" : "Quantumania",
+  "genero" : "Ação",
+  "duracao" : 120,
+  "sinopse" : "ipsem lorem",
+  "imdb" : 6.4,
+  "imagem" : "https://www.shoppingcidadedasflores.com.br/wp-content/uploads/sites/244/2023/02/Homem-Formiga-e-a-Vespa-Quantumania-SITE.png",
+  "like" : 0
+}, {
+  "id" : 2,
+  "titulo" : "O Poderoso Chefão",
+  "genero" : "Drama",
+  "duracao" : 200,
+  "sinopse" : "ipsem lorem",
+  "imdb" : 9.5,
+  "imagem" : "https://lumiere-a.akamaihd.net/v1/images/the_godfather_99f377a2.jpeg",
+  "like" : 0
+} ]

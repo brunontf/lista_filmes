@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adicionar Filme</title>
+  </head>
+  <body>
+    <h1>Adicionar Filme</h1>
+    <form th:object="${filme}" method="post" th:action="@{/add_filme}">
+      <label for="titulo">Título:</label>
+      <input type="text" id="titulo" name="titulo" th:field="*{titulo}" />
+      <br />
+      <label for="genero">Gênero:</label>
+      <input type="text" id="genero" name="genero" th:field="*{genero}" />
+      <br />
+      <label for="duracao">Duração:</label>
+      <input type="text" id="duracao" name="duracao" th:field="*{duracao}" />
+      <br />
+      <label for="sinopse">Sinopse:</label>
+      <input type="text" id="sinopse" name="sinopse" th:field="*{sinopse}" />
+      <br />
+      <label for="imdb">IMDB:</label>
+      <input type="text" id="imdb" name="imdb" th:field="*{imdb}" />
+      <br />
+      <label for="imagem">url imagem:</label>
+      <input type="text" id="imagem" name="imagem" th:field="*{imagem}" />
+      <br />
+      <button type="submit">Salvar</button>
+      <a th:href="@{/}">Cancelar</a>
+    </form>
+  </body>
+</html>

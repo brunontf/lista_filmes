@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Notícias</h1>
+    <div style="display: flex;" th:each="noticia : ${noticias}">
+        <div>
+            <img th:src="${noticia.imagem}" width="130" height="200">
+        </div>
+        <div>
+            <h3 >Título: <span th:text="${noticia.titulo}"></span></h3>
+            <h3 >Autor: <span th:text="${noticia.autor}"></span></h3>
+            <h3>Descrição:</h3>
+            <h6 th:text="${noticia.descricao}"></h6>
+        </div>
+    </div>
+    <a th:href="@{/noticias/add_noticia}"><button type="button">Adicionar nova notícia</button></a>
+    <a th:href="@{/noticias/salvar_lista}"><button type="button">Salvar lista</button></a>
+    <a th:href="@{/noticias/carregar_lista}"><button type="button">Carregar lista</button></a>
+    
+</body>
+</html>

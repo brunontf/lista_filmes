@@ -1,0 +1,13 @@
+[ {
+  "titulo" : "Novo Jogo",
+  "descricao" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation",
+  "imagem" : "https://sm.ign.com/ign_br/game/w/wo-long-fa/wo-long-fallen-dynasty_qf33.jpg",
+  "autor" : "Wo Long",
+  "id" : 1
+}, {
+  "titulo" : "Magia na área",
+  "descricao" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation",
+  "imagem" : "https://image.api.playstation.com/vulcan/ap/rnd/202011/0919/cDHU28ds7cCvKAnVQo719gs0.png",
+  "autor" : "PortKey Games",
+  "id" : 2
+} ]
