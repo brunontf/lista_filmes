@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index</title>
 </head>
-<body>
+<body class="container text-center ">
     <h1>Lista Filmes</h1>
     <table class="table table-striped">
         <thead>
@@ -28,20 +28,20 @@
                 <td ><img th:src="${filme.imagem}" width="130" height="200"></td>
                 <td th:text="${filme.titulo}"></td>
                 <td th:text="${filme.duracao}"></td>
-                <td class="bi bi-star-fill"><a th:href="@{/add_favorito/{id}(id=${filme.id})}">Favoritar</a></td>
-                <td class="bi bi-pencil-fill"><a th:href="@{/editar_filme/{id}(id=${filme.id})}">Editar</a></td>
-                <td class="bi bi-trash"><a th:href="@{/remover_filme/{id}(id=${filme.id})}" onclick="return confirm('Tem certeza que deseja excluir este filme?')">Excluir</a></td>
-                <td class="bi bi-hand-thumbs-up-fill"><a th:href="@{/like_up/{id}(id=${filme.id})}">like</a></td>
-                <td class="bi bi-hand-thumbs-down-fill"><a th:href="@{/like_down/{id}(id=${filme.id})}">deslike</a></td>
+                <td class="bi bi-star-fill"><a th:href="@{/filmes/add_favorito/{id}(id=${filme.id})}">Favoritar</a></td>
+                <td class="bi bi-pencil-fill"><a th:href="@{/filmes/editar_filme/{id}(id=${filme.id})}">Editar</a></td>
+                <td class="bi bi-trash"><a th:href="@{/filmes/remover_filme/{id}(id=${filme.id})}" onclick="return confirm('Tem certeza que deseja excluir este filme?')">Excluir</a></td>
+                <td class="bi bi-hand-thumbs-up-fill"><a th:href="@{/filmes/like_up/{id}(id=${filme.id})}">like</a></td>
+                <td class="bi bi-hand-thumbs-down-fill"><a th:href="@{/filmes/like_down/{id}(id=${filme.id})}">deslike</a></td>
             </tr>
         </tbody>
     </table>
     
-    <div>
-        <a th:href="@{/filmes_favoritos}"><button> Filmes Favoritos</button></a>
-        <a th:href="@{/add_filme}"><button type="button">Adicionar novo filme</button></a>
-        <a th:href="@{/salvar_lista}"><button type="button">Salvar lista</button></a>
-        <a th:href="@{/carregar_lista}"><button type="button">Carregar lista</button></a>
+    <div class="me-auto">
+        <a th:href="@{/filmes/filmes_favoritos}"><button> Filmes Favoritos</button></a>
+        <a th:href="@{/filmes/add_filme}"><button type="button">Adicionar novo filme</button></a>
+        <a th:href="@{/filmes/salvar_lista}"><button type="button">Salvar lista</button></a>
+        <a th:href="@{/filmes/carregar_lista}"><button type="button">Carregar lista</button></a>
     </div>
     <hr>
     <div>

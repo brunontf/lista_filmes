@@ -29,7 +29,7 @@ public class FilmesDAO {
         listaFilmes.add(filme);
     }
 
-    public List<Filme> getListaFilmes() {
+    public List<Filme> getListaFilmes(){
         return listaFilmes;
     }
 

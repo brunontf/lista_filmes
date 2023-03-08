@@ -8,22 +8,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
+<body class="container">
     <h1>Notícias</h1>
-    <div style="display: flex;" th:each="noticia : ${noticias}">
-        <div>
+    <div class="row justify-content-start" th:each="noticia : ${noticias}">
+        <div class="col-2">
             <img th:src="${noticia.imagem}" width="130" height="200">
         </div>
-        <div>
-            <h3 >Título: <span th:text="${noticia.titulo}"></span></h3>
-            <h3 >Autor: <span th:text="${noticia.autor}"></span></h3>
-            <h3>Descrição:</h3>
+        <div class="col">
+            <h3 th:text="'Título: '+${noticia.titulo}">  </h3>
+            <h3 th:text="'Autor: '+${noticia.autor}">  </h3>
+            <h4>Descrição:</h4>
             <h6 th:text="${noticia.descricao}"></h6>
         </div>
     </div>
-    <a th:href="@{/noticias/add_noticia}"><button type="button">Adicionar nova notícia</button></a>
-    <a th:href="@{/noticias/salvar_lista}"><button type="button">Salvar lista</button></a>
-    <a th:href="@{/noticias/carregar_lista}"><button type="button">Carregar lista</button></a>
+    <div class="gap-3">
+        <a class="" th:href="@{/noticias/add_noticia}"><button type="button">Adicionar nova notícia</button></a>
+        <a class="" th:href="@{/noticias/salvar_lista}"><button type="button">Salvar lista</button></a>
+        <a class="" th:href="@{/noticias/carregar_lista}"><button type="button">Carregar lista</button></a>
+    </div>
     
 </body>
 </html>

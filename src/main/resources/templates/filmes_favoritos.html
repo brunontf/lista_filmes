@@ -26,10 +26,10 @@
                 <td ><img th:src="${filme.imagem}" width="130" height="200"></td>
                 <td th:text="${filme.titulo}"></td>
                 <td th:text="${filme.duracao}"></td>
-                <td class="bi bi-star-fill"><a th:href="@{/remover_favorito/{id}(id=${filme.id})}">Desfavoritar</a></td>
-                <td class="bi bi-pencil-fill"><a th:href="@{/editar_filme/{id}(id=${filme.id})}">Editar</a></td>
-                <td class="bi bi-hand-thumbs-up-fill"><a th:href="@{/like_up/{id}(id=${filme.id})}">like</a></td>
-                <td class="bi bi-hand-thumbs-down-fill"><a th:href="@{/like_down/{id}(id=${filme.id})}">deslike</a></td>
+                <td class="bi bi-star-fill"><a th:href="@{/filmes/remover_favorito/{id}(id=${filme.id})}">Desfavoritar</a></td>
+                <td class="bi bi-pencil-fill"><a th:href="@{/filmes/editar_filme/{id}(id=${filme.id})}">Editar</a></td>
+                <td class="bi bi-hand-thumbs-up-fill"><a th:href="@{/filmes/like_up/{id}(id=${filme.id})}">like</a></td>
+                <td class="bi bi-hand-thumbs-down-fill"><a th:href="@{/filmes/like_down/{id}(id=${filme.id})}">deslike</a></td>
             </tr>
         </tbody>
     </table>

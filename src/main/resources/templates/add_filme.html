@@ -8,7 +8,7 @@
   </head>
   <body>
     <h1>Adicionar Filme</h1>
-    <form th:object="${filme}" method="post" th:action="@{/add_filme}">
+    <form th:object="${filme}" method="post" th:action="@{/filmes/add_filme}">
       <label for="titulo">Título:</label>
       <input type="text" id="titulo" name="titulo" th:field="*{titulo}" />
       <br />
@@ -28,7 +28,7 @@
       <input type="text" id="imagem" name="imagem" th:field="*{imagem}" />
       <br />
       <button type="submit">Salvar</button>
-      <a th:href="@{/}">Cancelar</a>
+      <a th:href="@{/filmes/}">Cancelar</a>
     </form>
   </body>
 </html>
