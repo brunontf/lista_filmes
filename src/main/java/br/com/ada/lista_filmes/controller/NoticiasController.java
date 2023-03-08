@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.fasterxml.jackson.core.exc.StreamReadException;
 import com.fasterxml.jackson.core.exc.StreamWriteException;
 import com.fasterxml.jackson.databind.DatabindException;
 
@@ -24,10 +25,17 @@ public class NoticiasController {
     private NoticiasDAO noticiasDAO;
 
     @GetMapping
-    public String listarNoticias(Model model) {
+    public String listarNoticias(Model model){
         List<Noticia> noticias = noticiasDAO.getListaNoticias();
         model.addAttribute("noticias", noticias);
         return "noticias";
+    }
+
+    @GetMapping("/{i}")
+    public String exibirNoticia(@PathVariable int i, Model model){
+        Noticia noticia = noticiasDAO.buscarPorId(i);
+        model.addAttribute("noticia", noticia);
+        return "noticia_id";
     }
 
     @GetMapping("add_noticia")
@@ -58,7 +66,7 @@ public class NoticiasController {
     @PostMapping("/editar_noticia")
     public String atualizarNoticia(Noticia noticia) {
         noticiasDAO.atualizarNoticia(noticia);
-        return "redirect:/noticias/";
+        return "redirect:/noticias";
     }
 
     @GetMapping("/salvar_lista")

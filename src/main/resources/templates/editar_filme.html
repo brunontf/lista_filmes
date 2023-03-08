@@ -10,6 +10,7 @@
     <h1>Editar Filme</h1>
     <form th:object="${filme}" method="post" th:action="@{/filmes/editar_filme}">
       <input type="hidden" th:field="*{id}">
+      <input type="hidden" th:field="*{like}">
       <label for="titulo">Título:</label>
       <input type="text" id="titulo" name="titulo" th:field="*{titulo}" />
       <br />

@@ -3,6 +3,7 @@ package br.com.ada.lista_filmes.dao;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
@@ -23,6 +24,11 @@ public class FilmesDAO {
     private static int id = 1;
     private static ObjectMapper objectMapper = new ObjectMapper();
 
+    FilmesDAO() throws StreamReadException, DatabindException, IOException{
+        carregarJson();
+        carregarJsonFavoritos();
+    }
+
     public void adicionar(Filme filme) {
         filme.setId(id++);
         filme.setLike(0);
@@ -30,7 +36,12 @@ public class FilmesDAO {
     }
 
     public List<Filme> getListaFilmes(){
+        sortListByLikes();
         return listaFilmes;
+    }
+
+    private void sortListByLikes() {
+        listaFilmes.sort(Comparator.comparing(Filme::getLike).reversed());
     }
 
     public List<Filme> getListaFilmesFavoritos() {
@@ -54,6 +65,19 @@ public class FilmesDAO {
     public void carregarJson() throws StreamReadException, DatabindException, IOException {
         List<Filme> filmes = objectMapper.readValue(new File("src/main/resources/json/lista_filmes.json"), new TypeReference<List<Filme>>(){});
         listaFilmes = filmes;
+        if(filmes.size()>0){
+            id = filmes.get(filmes.size()-1).getId()+1;
+        }
+    }
+
+    public void salvarJsonFavoritos() throws StreamWriteException, DatabindException, IOException {
+        objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
+        objectMapper.writeValue(new File("src/main/resources/json/lista_filmes_favoritos.json"), listaFilmesFavoritos);
+    }
+
+    public void carregarJsonFavoritos() throws StreamReadException, DatabindException, IOException {
+        List<Filme> filmes = objectMapper.readValue(new File("src/main/resources/json/lista_filmes_favoritos.json"), new TypeReference<List<Filme>>(){});
+        listaFilmesFavoritos = filmes;
         if(filmes.size()>0){
             id = filmes.get(filmes.size()-1).getId()+1;
         }

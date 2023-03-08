@@ -6,15 +6,17 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Filmes</title>
 </head>
-<body class="container">
-    <h1>Notícias</h1>
-    <div th:insert="template_noticias :: tabela_noticias"></div>
-    <div class="gap-3">
-        <a class="" th:href="@{/noticias/add_noticia}"><button type="button">Adicionar nova notícia</button></a>
-        <a class="" th:href="@{/noticias/salvar_lista}"><button type="button">Salvar lista</button></a>
-        <a class="" th:href="@{/noticias/carregar_lista}"><button type="button">Carregar lista</button></a>
+<body class="container text-center ">
+    <h1>Lista Filmes</h1>
+    <div th:insert="template_filmes :: tabela_filmes"></div>
+    
+    <div class="me-auto">
+        <a th:href="@{/filmes/filmes_favoritos}"><button> Filmes Favoritos</button></a>
+        <a th:href="@{/filmes/add_filme}"><button type="button">Adicionar novo filme</button></a>
+        <a th:href="@{/filmes/salvar_lista}"><button type="button">Salvar lista</button></a>
+        <a th:href="@{/filmes/carregar_lista}"><button type="button">Carregar lista</button></a>
         <a href="/"><button>Voltar página principal</button></a>
     </div>
 </body>

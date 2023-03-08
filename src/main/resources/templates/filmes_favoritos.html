@@ -12,13 +12,13 @@
     <table class="table table-striped">
         <thead>
             <th >LIKES</th>
-            <th >(imagens)</th>
+            <th ></th>
             <th >Título</th>
             <th >Duração</th>
-            <th >favorito</th>
-            <th >editar</th>
-            <th >like</th>
-            <th >deslike</th>
+            <th ></th>
+            <th ></th>
+            <th ></th>
+            <th ></th>
         </thead>
         <tbody>
             <tr th:each="filme : ${lista_filmes_favoritos}">
@@ -33,5 +33,10 @@
             </tr>
         </tbody>
     </table>
+    <div class="me-auto">
+        <a th:href="@{/filmes/filmes_favoritos/salvar_lista}"><button type="button">Salvar lista</button></a>
+        <a th:href="@{/filmes/filmes_favoritos/carregar_lista}"><button type="button">Carregar lista</button></a>
+        <a href="/filmes"><button>Voltar a página anterior</button></a>
+    </div>
 </body>
 </html>

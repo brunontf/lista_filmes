@@ -1,0 +1,40 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+    <th:block th:fragment="tabela_filmes">
+        <table class="table table-striped">
+            <thead>
+                <th >LIKES</th>
+                <th ></th>
+                <th >Título</th>
+                <th >Duração</th>
+                <th ></th>
+                <th ></th>
+                <th ></th>
+                <th ></th>
+                <th ></th>
+            </thead>
+            <tbody>
+                <tr th:each="filme : ${lista_filmes}">
+                    <td th:text="${filme.like}"></td>
+                    <td >
+                        <a th:href="@{/filmes/{id}(id=${filme.id})}">
+                            <img th:src="${filme.imagem}" width="130" height="200">
+                        </a>
+                    </td>
+                    <td>
+                        <a th:href="@{/filmes/{id}(id=${filme.id})}">
+                            <span th:text="${filme.titulo}"></span>
+                        </a>
+                    </td>
+                    <td th:text="${filme.duracao}"></td>
+                    <td class="bi bi-star-fill"><a th:href="@{/filmes/add_favorito/{id}(id=${filme.id})}">Favoritar</a></td>
+                    <td class="bi bi-pencil-fill"><a th:href="@{/filmes/editar_filme/{id}(id=${filme.id})}">Editar</a></td>
+                    <td class="bi bi-trash"><a th:href="@{/filmes/remover_filme/{id}(id=${filme.id})}" onclick="return confirm('Tem certeza que deseja excluir este filme?')">Excluir</a></td>
+                    <td class="bi bi-hand-thumbs-up-fill"><a th:href="@{/filmes/like_up/{id}(id=${filme.id})}">like</a></td>
+                    <td class="bi bi-hand-thumbs-down-fill"><a th:href="@{/filmes/like_down/{id}(id=${filme.id})}">deslike</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </th:block>
+
+</html>

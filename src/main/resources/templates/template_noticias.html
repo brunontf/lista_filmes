@@ -1,0 +1,21 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+    <th:block th:fragment="tabela_noticias">
+        <div class="row justify-content-start" th:each="noticia : ${noticias}">
+            <div class="col-2">
+                <a th:href="@{/noticias/{id}(id=${noticia.id})}">
+                    <img th:src="${noticia.imagem}" width="130" height="200">
+                </a>
+            </div>
+            <div class="col">
+                <a th:href="@{/noticias/{id}(id=${noticia.id})}">
+                    <h3 th:text="'Título: '+${noticia.titulo}"></h3>
+                </a>
+                <h3 th:text="'Autor: '+${noticia.autor}">  </h3>
+                <h4>Descrição:</h4>
+                <h6 th:text="${noticia.descricao}"></h6>
+            </div>
+        </div>
+    </th:block>
+
+</html>

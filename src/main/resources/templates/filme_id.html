@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container"> 
+        <h1 th:text="${filme.titulo}"></h1>
+        <h3 th:text="${filme.genero}"></h3>
+        <h3 th:text="'imdb: '+${filme.imdb}"></h3>
+        <div style="display: flex;" th:object="${filme}">
+            <div class="">
+                <img th:src="${filme.imagem}" width="200" height="350">
+            </div>
+            <div class="">
+                <h3 th:text="${filme.like}+' likes'"></h3>
+                <h3 th:text="${filme.duracao}+'min'"></h3>
+                <h4 th:text="${filme.sinopse}"></h4>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.fasterxml.jackson.core.exc.StreamReadException;
 import com.fasterxml.jackson.core.exc.StreamWriteException;
 import com.fasterxml.jackson.databind.DatabindException;
 
@@ -24,10 +23,16 @@ public class FilmesController {
     private FilmesDAO filmesDAO;
 
     @GetMapping()
-    public String listar(Model model) throws StreamReadException, DatabindException, IOException {
-        // filmesDAO.carregarJson();
-        model.addAttribute("lista_filmes", filmesDAO.getListaFilmes() );
-        return "index";
+    public String listar(Model model){
+        model.addAttribute("lista_filmes", filmesDAO.getListaFilmes());
+        return "filmes";
+    }
+
+    @GetMapping("/{i}")
+    public String exibirNoticia(@PathVariable int i, Model model){
+        Filme filme = filmesDAO.buscarPorId(i);
+        model.addAttribute("filme", filme);
+        return "filme_id";
     }
 
     @GetMapping("/add_filme")
@@ -102,6 +107,18 @@ public class FilmesController {
     public String carregarListaFilmes() throws StreamWriteException, DatabindException, IOException {
         filmesDAO.carregarJson();
         return "redirect:/filmes";
+    }
+
+    @GetMapping("filmes_favoritos/salvar_lista")
+    public String salvarListaFilmesFavoritos() throws StreamWriteException, DatabindException, IOException {
+        filmesDAO.salvarJsonFavoritos();
+        return "redirect:/filmes/filmes_favoritos";
+    }
+    
+    @GetMapping("filmes_favoritos/carregar_lista")
+    public String carregarListaFilmesFavoritos() throws StreamWriteException, DatabindException, IOException {
+        filmesDAO.carregarJsonFavoritos();
+        return "redirect:/filmes/filmes_favoritos";
     }
 
 }

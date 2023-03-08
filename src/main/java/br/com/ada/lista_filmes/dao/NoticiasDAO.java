@@ -22,6 +22,15 @@ public class NoticiasDAO {
     private static int id = 1;
     private static ObjectMapper objectMapper = new ObjectMapper();
 
+    NoticiasDAO(){
+        try {
+            carregarNoticiasJson();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
     public void adicionar(Noticia noticia) {
         noticia.setId(id++);
         listaNoticias.add(noticia);
@@ -46,8 +55,8 @@ public class NoticiasDAO {
 
     public void atualizarNoticia(Noticia noticia) {
         for (int i = 0; i < listaNoticias.size(); i++) {
-            Noticia f = listaNoticias.get(i);
-            if (f.getId() == noticia.getId()) {
+            Noticia n = listaNoticias.get(i);
+            if (n.getId() == noticia.getId()) {
                 listaNoticias.set(i, noticia);
                 break;
             }
