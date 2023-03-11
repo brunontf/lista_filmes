@@ -6,7 +6,7 @@
   "sinopse" : "ipsem lorem",
   "imdb" : 9.8,
   "imagem" : "https://upload.wikimedia.org/wikipedia/pt/3/3a/Interstellar_Filme.png",
-  "like" : 13
+  "like" : 20
 }, {
   "id" : 2,
   "titulo" : "O Poderoso Chefão",
@@ -24,5 +24,5 @@
   "sinopse" : "ipsem lorem",
   "imdb" : 6.4,
   "imagem" : "https://www.shoppingcidadedasflores.com.br/wp-content/uploads/sites/244/2023/02/Homem-Formiga-e-a-Vespa-Quantumania-SITE.png",
-  "like" : 1
+  "like" : 3
 } ]
